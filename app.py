@@ -18,12 +18,6 @@ cursor.execute('''
 conn.commit()
 conn.close()
 
-selected_item = None  # Переменная для хранения выбранного элемента
-
-def on_item_select(event):
-    global selected_item
-    selected_item = tree.selection()  # Сохраняем выбранный элемент
-
 def add_employee():
     full_name = entry_full_name.get()
     phone_number = entry_phone_number.get()
@@ -173,7 +167,6 @@ error_label.grid(row=3, column=0, padx=10, pady=10)
 refresh_button = ttk.Button(root, text="Обновить", command=refresh_records)
 refresh_button.grid(row=4, column=0, padx=10, pady=10)
 
-tree.bind("<<TreeviewSelect>>", on_item_select)  # Привязываем функцию к событию выбора элемента
 
 
 root.mainloop()
